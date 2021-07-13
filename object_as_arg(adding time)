@@ -1,0 +1,48 @@
+#include<iostream>
+using namespace std;
+class time
+{
+	private:
+		int hr,min,sec;
+		
+	public:
+		time()
+			{
+				hr=0;
+				min=0;
+				sec=0;
+			}
+			time(int x,int y,int z)
+			{
+				hr=x;
+				min=y;
+				sec=z;
+			}
+			//t3.add(t1,t2,t3)
+			void add(time t1,time t2,time t3)
+			{	
+				sec= t1.sec + t2.sec;
+				min= t1.min + t2.min + (sec/60);
+				hr= t1.hr + t2.hr + (min/60);
+				min= min%60;
+				sec= sec%60;
+			}
+			
+			void printdata()
+			{
+				cout<<"\nHr=>"<<hr<<" Min=>"<<min<<" Sec=>"<<sec;
+			}
+};
+
+main()
+{	
+	time t3;
+	time t1(5,40,20);
+	time t2(3,40,30);
+	t3.add(t1,t2,t3);
+	
+	
+	t1.printdata();
+	t2.printdata();
+	t3.printdata();
+}
